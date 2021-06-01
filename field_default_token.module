@@ -172,9 +172,8 @@ function field_default_token_form_field_ui_field_edit_form_alter(&$form, &$form_
     }
 
     $form['instance']['default_value_widget']['token_tree'] = array(
-      '#theme' => 'token_tree',
+      '#theme' => 'token_tree_link',
       '#token_types' => array($token_type),
-      '#dialog' => TRUE,
       '#weight' => 200,
     );
   }
@@ -357,4 +356,13 @@ function field_default_token_number_field_widget_validate($element, &$form_state
     return;
   }
   number_field_widget_validate($element, $form_state);
+}
+
+/**
+ * Implements hook_autoload_info().
+ */
+function field_default_token_autoload_info() {
+  return array(
+    'FieldDefaultTokenEmptyAlter' => 'plugins/behavior/FieldDefaultTokenEmptyAlter.class.php',
+  );
 }
