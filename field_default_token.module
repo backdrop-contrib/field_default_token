@@ -231,15 +231,6 @@ function field_default_token_fix_number_validation(&$element) {
 }
 
 /**
- * Implements hook_ctools_plugin_directory().
- */
-function field_default_token_ctools_plugin_directory($module, $plugin) {
-  if ($module == 'entityreference') {
-    return 'plugins/' . $plugin;
-  }
-}
-
-/**
  * Implements hook_field_widget_form_alter().
  */
 function field_default_token_field_widget_form_alter(&$element, &$form_state, $context) {
