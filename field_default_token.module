@@ -27,7 +27,8 @@ function field_default_token_field_update_instance($instance, $prior_instance) {
           else {
             foreach ($value as $column_value) {
               if (is_array($column_value)) {
-                // Complex fields such as Table Field contain a structure inside the value, skip them.
+                // Complex fields such as Table Field contain a structure inside
+                // the value, skip them.
                 continue;
               }
               if (strpos($column_value, '[') !== FALSE) {
@@ -95,7 +96,8 @@ function field_default_token_default_value_function($entity_type, $entity, $fiel
     else {
       foreach ($item as $column_name => $column_value) {
         if (is_array($column_value)) {
-          // Complex fields such as Table Field contain a structure inside the value, so we can't replace it with a string.
+          // Complex fields such as Table Field contain a structure inside the
+          // value, so we can't replace it with a string.
           continue;
         }
         $item[$column_name] = token_replace($column_value, $data, array('clear' => TRUE, 'sanitize' => FALSE));
