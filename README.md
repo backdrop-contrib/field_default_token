@@ -1,6 +1,7 @@
 # Field default token
 
-This module enables to use tokens as field default values.
+This module enables to use tokens as field default values. That's a
+convenient way to pre-populate fields when creating content.
 
 ## Installation
 
