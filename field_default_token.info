@@ -2,3 +2,4 @@ name = Field default token
 description = Enables to use tokens as field default values.
 package = Fields
 backdrop = 1.x
+type = module
