@@ -126,6 +126,30 @@ function field_default_token_form_field_ui_field_edit_form_alter(&$form, &$form_
     }
   }
 
+  // Autocomplete fields are not supported. That's also a known issue for the
+  // Drupal version.
+  if (isset($instance['widget']['settings']['autocomplete_path'])) {
+    return;
+  }
+
+  // Neither do number fields, the client side validation wouldn't work.
+  $number_fields = array('number_integer', 'number_decimal', 'number_float');
+  if (in_array($field['type'], $number_fields)) {
+    return;
+  }
+
+  // List fields also don't work.
+  // @todo Figure out if that can get fixed.
+  $list_types = array(
+    'list_integer',
+    'list_float',
+    'list_text',
+    'list_boolean',
+  );
+  if (in_array($field['type'], $list_types)) {
+    return;
+  }
+
   $options_widgets = array('options_select', 'options_buttons', 'options_onoff');
 
   if ((isset($instance['widget']['type'])) && (in_array($instance['widget']['type'], $options_widgets))) {
